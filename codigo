@@ -1,0 +1,115 @@
+import java.util.Date;
+
+public class Patente {
+    private int numeroPatente;
+    private String nombreInvento;
+    private Date fechaObtencion;
+
+    // Constructor
+    public Patente(int numeroPatente, String nombreInvento, Date fechaObtencion) {
+        this.numeroPatente = numeroPatente;
+        this.nombreInvento = nombreInvento;
+        this.fechaObtencion = fechaObtencion;
+    }
+
+    // Getters y Setters
+    public int getNumeroPatente() {
+        return numeroPatente;
+    }
+
+    public void setNumeroPatente(int numeroPatente) {
+        this.numeroPatente = numeroPatente;
+    }
+
+    public String getNombreInvento() {
+        return nombreInvento;
+    }
+
+    public void setNombreInvento(String nombreInvento) {
+        this.nombreInvento = nombreInvento;
+    }
+
+    public Date getFechaObtencion() {
+        return fechaObtencion;
+    }
+
+    public void setFechaObtencion(Date fechaObtencion) {
+        this.fechaObtencion = fechaObtencion;
+    }
+}
+
+public class OficinaDePatentes {
+    public static void main(String[] args) {
+        // Crear una nueva patente
+        Patente nuevaPatente = new Patente(1, "Invento Genial", new Date());
+
+        // Aquí puedes agregar lógica adicional, como guardar la patente en una base de datos.
+        // Por simplicidad, solo se crea la patente en este ejemplo.
+        
+        // Imprimir información de la nueva patente
+        System.out.println("Patente registrada con éxito:");
+        System.out.println("Número de patente: " + nuevaPatente.getNumeroPatente());
+        System.out.println("Nombre del invento: " + nuevaPatente.getNombreInvento());
+        System.out.println("Fecha de obtención: " + nuevaPatente.getFechaObtencion());
+    }
+}
+
+
+
+
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
+public class Patente {
+    private int numeroPatente;
+    private String nombreInvento;
+    private Date fechaObtencion;
+
+    // Constructor y métodos getter y setter (como en el ejemplo anterior)
+
+    // Otros métodos de la clase Patente
+}
+
+public class OficinaDePatentes {
+    private static List<Patente> listaDePatentes = new ArrayList<>();
+
+    // Método para buscar una patente por número
+    public static Patente buscarPatentePorNumero(int numeroPatente) {
+        for (Patente patente : listaDePatentes) {
+            if (patente.getNumeroPatente() == numeroPatente) {
+                return patente;
+            }
+        }
+        return null; // Si no se encuentra la patente
+    }
+
+    public static void main(String[] args) {
+        // Supongamos que tienes una lista de patentes existentes
+        listaDePatentes.add(new Patente(1, "Invento 1", new Date()));
+        listaDePatentes.add(new Patente(2, "Invento 2", new Date()));
+
+        // Buscar una patente por número (por ejemplo, el número 1)
+        int numeroAEditar = 1;
+        Patente patenteAEditar = buscarPatentePorNumero(numeroAEditar);
+
+        // Verificar si la patente existe
+        if (patenteAEditar != null) {
+            // Modificar la información de la patente
+            patenteAEditar.setNombreInvento("Nuevo nombre del invento");
+
+            // Imprimir la información actualizada
+            System.out.println("Información de la patente actualizada:");
+            System.out.println("Número de patente: " + patenteAEditar.getNumeroPatente());
+            System.out.println("Nombre del invento: " + patenteAEditar.getNombreInvento());
+            System.out.println("Fecha de obtención: " + patenteAEditar.getFechaObtencion());
+        } else {
+            System.out.println("La patente con el número " + numeroAEditar + " no fue encontrada.");
+        }
+    }
+}
+
+
+
+
+
